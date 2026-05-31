@@ -20,8 +20,9 @@ AmigaHorse_Core  ◄───┬──── AmigaHorse_Web      (WASM-binding)
 | Upstream | Licentie | Rol | Repo |
 |---|---|---|---|
 | WinUAE | GPL-2.0-or-later (per-file mix) | Referentie-codebase + master-source van Amiga-emulatie | [tonioni/WinUAE](https://github.com/tonioni/WinUAE) |
-| FS-UAE | GPL-2.0+ | Cross-platform WinUAE-derivaat (Linux/Mac/Win); waarschijnlijk praktische basis | [FrodeSolheim/fs-uae](https://github.com/FrodeSolheim/fs-uae) |
-| vAmigaWeb | GPL-3.0 (TBC) | Alternatieve WASM-emulator (eigen core, geen WinUAE-derivaat) — overweging voor Web-variant | [dirkwhoffmann/vAmigaWeb](https://github.com/dirkwhoffmann/vAmigaWeb) |
+| FS-UAE | GPL-2.0+ | Cross-platform WinUAE-derivaat (Linux/Mac/Win); voor X86/Android-basis | [FrodeSolheim/fs-uae](https://github.com/FrodeSolheim/fs-uae) |
+| **vAmigaWeb** | **GPL-3.0** (geverifieerd 31-05) | **AmigaHorse_Web Core-basis (v0.0.2)** — submodule `external/vamigaweb`, pinned `c3c50d9` | [vAmigaWeb/vAmigaWeb](https://github.com/vAmigaWeb/vAmigaWeb) |
+| vAmiga (in vAmigaWeb/Core/) | 3-tier: GPL-3.0+ (app) / MPL-2.0 (Core Emulator) / MIT (Moira CPU) | Vendored upstream van vAmigaWeb. Alle 3 lagen AGPL-3.0-compat. | [dirkwhoffmann/vAmiga](https://github.com/dirkwhoffmann/vAmiga) |
 | AROS | APL (Apache-stijl) / GPL | Open-source Kickstart-replacement | [aros-development-team](https://github.com/aros-development-team) |
 | Uae4droid / uae4arm-rpi | GPL-2.0+ | Bestaande Android-port (overweging) | midwan/uae4arm-rpi |
 | SDL2 | zlib | Cross-platform input/audio/video abstractie | libsdl-org/SDL |

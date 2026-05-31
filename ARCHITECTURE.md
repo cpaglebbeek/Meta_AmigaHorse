@@ -87,7 +87,7 @@
 2. Eenmalig: warm-snapshot bouwen — emulator boot A500 + KS 1.3 + WB 1.3, AmigaBASIC start, save-state freeze → IndexedDB als `basic-env-snapshot`
 3. Per `.bas`: drag-drop → schrijf naar MEMFS:`/dh1/launch.bas` → restore `basic-env-snapshot` → inject keyboard `LOAD "DH1:launch.bas"<CR>RUN<CR>` → klaar (~1-2 sec na cold-cache, ~500 ms warm)
 
-**Core-keuze v0.0.2 (besloten):** [vAmigaWeb](https://github.com/dirkwhoffmann/vAmigaWeb) als basis. GPL-3.0 → AGPL-3.0 upgrade legaal. A500 + OCS sweet-spot past op KS 1.3 BASIC-doelen. Coherentie met AmigaHorse_Core (FS-UAE/WinUAE-derivaat) heroverwegen in v0.0.3.
+**Core-keuze v0.0.2 (besloten):** [vAmigaWeb](https://github.com/vAmigaWeb/vAmigaWeb) als basis. GPL-3.0 → AGPL-3.0 upgrade legaal. A500 + OCS sweet-spot past op KS 1.3 BASIC-doelen. Coherentie met AmigaHorse_Core (FS-UAE/WinUAE-derivaat) heroverwegen in v0.0.3.
 
 **Distributie:** Static hosting met COOP+COEP-headers (SharedArrayBuffer-vereiste). Voorlopig icthorse.nl/AmigaHorse/ of HC55.
 
