@@ -2,6 +2,8 @@
 
 Ontwerpprincipes die voor alle 6 repo's gelden. In Dragon1-structuur: **statement → rationale → mechanisme → implicaties**.
 
+P-AMH-01 t/m 08 vastgesteld v0.0.1-Lemmings (2026-05-31). P-AMH-09 toegevoegd v0.1.0-Worms (2026-05-31, BASIC-modus-besluit op AmigaHorse_Web v0.0.2).
+
 ---
 
 ## P-AMH-01 — Upstream first
@@ -107,6 +109,29 @@ Ontwerpprincipes die voor alle 6 repo's gelden. In Dragon1-structuur: **statemen
 - Mogelijk geen Steam Achievement-integratie (vereist Steam SDK closed-source)
 - Geen Cloanto Amiga Forever ROM-bundling (closed-source binaries)
 - Web-variant: geen closed-source CDN libraries; alle JS-deps AGPL-/MIT-/BSD-compatible
+
+---
+
+## P-AMH-09 — BASIC as first-class use-case
+
+**Statement:** AmigaBASIC (en in de toekomst AMOS/HiSoft/Blitz) is **geen feature** van de emulator maar een **eerste-klas use-case** met eigen UI-route, eigen flow en eigen architectuur. "Mijn `.bas` draaien" staat naast "Turrican spelen" als gelijkwaardig doel.
+
+**Rationale:** AmigaBASIC werd letterlijk met elke Amiga 1000/500 meegeleverd op de Workbench 1.x-disk (Microsoft 1985-1989). Veel Amiga-gebruikers schreven hun eerste programma's in AmigaBASIC. Een Amiga-emulator zonder gestroomlijnde BASIC-flow negeert een hele gebruikersgroep. Bovendien onderscheidt deze flow AmigaHorse van upstream vAmigaWeb (dat alleen disk-based gaming-focus heeft).
+
+**Mechanisme:**
+- Twee parallelle routes in elke variant met UI (Web zeker, eventueel later X86/Android):
+  - **Quick BASIC mode** (`/` op Web) — drop een `.bas`, ~3-5 sec tot RUN
+  - **Full configurable** (`/full` op Web) — volledige emulator-ervaring
+- BASIC-mode vereist eenmalige **Asset-Setup-wizard** (user-Kickstart 1.3 + WB 1.3 + AmigaBASIC binary → IndexedDB / app-data-dir)
+- Per-target implementatie: warm-snapshot van Amiga-in-BASIC-prompt + hostfs-injection van `.bas` + simulated `LOAD/RUN` keyboard-input
+- Auto-RUN default; toggle "stop in BASIC-prompt" voor LIST/edit-workflow
+
+**Implicaties:**
+- Save-state-formaat (P-AMH-04) wordt uitgebreid met `BasicEnvSnapshot`-subtype (warm-start)
+- ROM-beleid (P-AMH-05) blijft strikt: AmigaBASIC binary = user-supplied, niet in git
+- Per-variant ARCHITECTURE.md MOET de BASIC-route documenteren als die ondersteund wordt
+- v0.0.x AmigaBASIC; AMOS in v0.0.3+; HiSoft/Blitz v0.x+
+- AmigaBASIC werkt alleen op Kickstart 1.x (Commodore-bug op KS 2.0+); BASIC-mode lockt UI op A500/A1000 + KS 1.3
 
 ---
 

@@ -1,9 +1,11 @@
 ---
 date: 2026-05-31
 repo: Meta_AmigaHorse
-status: open
-resume: "verder met Meta_AmigaHorse v0.0.2 — wireframes screens/ + tool-keuze (Excalidraw/Figma/Penpot)"
+status: done
+resume: ""
 ---
+
+> Afgesloten 2026-05-31 bij v0.1.0-Worms bump (P-AMH-09 toegevoegd, ARCH herzien). Wireframes screens/ doorgeschoven naar v0.0.3 — zie `2026-05-31_v010_basic_principle.md`.
 
 # Sessie 2026-05-31 — newp Meta_AmigaHorse (ecosysteem-master)
 

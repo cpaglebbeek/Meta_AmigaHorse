@@ -2,6 +2,25 @@
 
 Alle relevante wijzigingen worden hier vastgelegd. Format: [Keep a Changelog](https://keepachangelog.com/), versies volgen semver + codenaam (Amiga-game-legendes).
 
+## [0.1.0-Worms] — 2026-05-31
+
+### Added (Oranje — architectuurwijziging)
+- **P-AMH-09 — BASIC as first-class use-case** toegevoegd aan `docs/PRINCIPLES.md` (AmigaBASIC en toekomstige BASIC-dialecten als eigen interaction-pattern, niet als feature)
+- `ARCHITECTURE.md`: Web-variant uitgebreid met twee parallelle routes (`/` Quick BASIC + `/full` Full mode) + warm-snapshot-data-flow + vAmigaWeb als besloten Core-basis voor Web v0.0.2
+- `CLAUDE.md`: codenaam-pool toegewezen-tabel uitgebreid (Meta v0.1.0-Worms + Web v0.0.2-CannonFodder); pool-tekst aangepast
+
+### Decided (op WhatIf-akkoord AmigaHorse_Web v0.0.2)
+- BASIC-scope v0.0.2 = AmigaBASIC only (AMOS/HiSoft v0.0.3+)
+- Auto-RUN default; toggle "stop in BASIC-prompt" voor LIST/edit
+- File-injection via hostfs (Emscripten MEMFS → vAmiga DH1:)
+- Web Core-basis = vAmigaWeb (in plaats van eigen FS-UAE/WinUAE-Emscripten-port nu); coherentie met X86/Android in v0.0.3
+- Asset-upload v0.0.2 = 3 file-pickers; bundle-zip in v0.0.3
+- UI-routes: `/` = Quick BASIC, `/full` = configurable (deelbare URLs)
+- Warm-snapshot one-time + cache
+
+### Changed
+- Web v0.0.1-Turrican prompt-sessie gemarkeerd `status: done` (akkoord op v0.0.2-richting)
+
 ## [0.0.1-Lemmings] — 2026-05-31
 
 ### Added

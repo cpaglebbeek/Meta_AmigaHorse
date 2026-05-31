@@ -47,33 +47,49 @@
 
 ## Variant 1 — Web (prio 1)
 
+**Twee parallelle routes (v0.0.2-CannonFodder, conform P-AMH-09):**
+
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                       Browser                              │
 │                                                            │
-│   ┌──────────────────────┐                                 │
-│   │  HTML/CSS/JS UI      │  ← Eigen code                   │
-│   │  - Cartridge browser │   (vanilla JS of lichte React)  │
-│   │  - OSD overlay       │                                 │
-│   │  - Touch + keyboard  │                                 │
-│   │  - File-API drag/drop│                                 │
-│   └──────────┬───────────┘                                 │
-│              │ JS ↔ WASM exports                           │
-│              ▼                                             │
-│   ┌──────────────────────┐                                 │
-│   │  AmigaHorse_Core     │  ← Emscripten-build              │
-│   │  WASM module         │   (PTHREAD + SDL2-port)          │
-│   │  + AudioWorklet      │                                 │
-│   │  + WebGL/Canvas2D    │                                 │
-│   └──────────────────────┘                                 │
-│              │                                             │
-│              ▼                                             │
-│   IndexedDB: ADF/HDF cache, save-states, BIOS              │
+│   ┌────────────────────┐         ┌────────────────────┐    │
+│   │  /  Quick BASIC    │         │  /full  Full mode  │    │
+│   │  - Drag .bas       │         │  - Library         │    │
+│   │  - Auto-RUN        │         │  - Settings        │    │
+│   │  - Warm-snapshot   │         │  - Compat-set      │    │
+│   └──────────┬─────────┘         └─────────┬──────────┘    │
+│              │                              │              │
+│              └──────────────┬───────────────┘              │
+│                             │ wasm-bridge.js               │
+│                             ▼                              │
+│   ┌──────────────────────────────────────────────────┐     │
+│   │  vAmiga-WASM (via vAmigaWeb-fork, v0.0.2-basis)  │     │
+│   │  + AudioWorklet (audio)                          │     │
+│   │  + WebGL/Canvas2D (framebuffer)                  │     │
+│   │  + hostfs (Emscripten MEMFS → vAmiga DH1: mount) │     │
+│   └──────────────────────────────────────────────────┘     │
+│                             │                              │
+│                             ▼                              │
+│   ┌──────────────────────────────────────────────────┐     │
+│   │  IndexedDB                                       │     │
+│   │  - amigahorse-kickstart (user KS 1.3/2.05/3.1)   │     │
+│   │  - amigahorse-disks (ADF/HDF)                    │     │
+│   │  - amigahorse-states (save-states + warm-basic)  │     │
+│   │  - amigahorse-config (per-route settings)        │     │
+│   └──────────────────────────────────────────────────┘     │
 └────────────────────────────────────────────────────────────┘
 ```
 
-**Distributie:** Static hosting (HC55 of icthorse.nl/AmigaHorse). Geen install, geen backend.
-**Open vragen v0.0.2 Web:** Eigen Emscripten-port van FS-UAE/WinUAE-core vs integratie met [vAmigaWeb](https://github.com/dirkwhoffmann/vAmigaWeb) (andere upstream-core, mogelijk sneller resultaat maar afwijkende API).
+**Quick BASIC data-flow (P-AMH-09):**
+
+1. Eenmalig: Asset-Setup-wizard (`/basic/setup`) — user uploadt KS 1.3 + WB 1.3 ADF + AmigaBASIC binary → IndexedDB
+2. Eenmalig: warm-snapshot bouwen — emulator boot A500 + KS 1.3 + WB 1.3, AmigaBASIC start, save-state freeze → IndexedDB als `basic-env-snapshot`
+3. Per `.bas`: drag-drop → schrijf naar MEMFS:`/dh1/launch.bas` → restore `basic-env-snapshot` → inject keyboard `LOAD "DH1:launch.bas"<CR>RUN<CR>` → klaar (~1-2 sec na cold-cache, ~500 ms warm)
+
+**Core-keuze v0.0.2 (besloten):** [vAmigaWeb](https://github.com/dirkwhoffmann/vAmigaWeb) als basis. GPL-3.0 → AGPL-3.0 upgrade legaal. A500 + OCS sweet-spot past op KS 1.3 BASIC-doelen. Coherentie met AmigaHorse_Core (FS-UAE/WinUAE-derivaat) heroverwegen in v0.0.3.
+
+**Distributie:** Static hosting met COOP+COEP-headers (SharedArrayBuffer-vereiste). Voorlopig icthorse.nl/AmigaHorse/ of HC55.
 
 ## Variant 2 — X86 (prio 2)
 
