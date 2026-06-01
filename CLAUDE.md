@@ -42,13 +42,14 @@ Elke release krijgt een unieke Amiga-titel als codenaam.
 | AmigaHorse_Web | v0.0.6 | Apidya |
 | AmigaHorse_Web | v0.0.7 | Chaos Engine |
 | AmigaHorse_Web | v0.0.8 | Defender of the Crown |
+| AmigaHorse_Web | v0.0.9 | Frontier: Elite II |
 | AmigaHorse_X86 | v0.0.1 | Shadow of the Beast |
 | AmigaHorse_Android | v0.0.1 | Pinball Dreams |
 | AmigaHorse_SteamDeck | v0.0.1 | Sensible Soccer |
 
 ### Vrije pool (Amiga-game-legendes, willekeurige volgorde)
 
-Project-X, Alien Breed, Super Frog, IK+, Populous, Syndicate, Frontier Elite II, Stunt Car Racer, Lotus Esprit Turbo, Xenon 2 Megablast, Gods, Magic Pockets, Lionheart, Banshee, Body Blows, Brutal Sports Football, F/A-18 Interceptor, Hunter, Killing Game Show, Mega-lo-Mania, Microprose Soccer, Monkey Island, Beneath a Steel Sky, Settlers, Theme Park, Theme Hospital, UFO Enemy Unknown, Wing Commander, Zool, Walker, Agony, Disposable Hero.
+Project-X, Alien Breed, Super Frog, IK+, Populous, Syndicate, Stunt Car Racer, Lotus Esprit Turbo, Xenon 2 Megablast, Gods, Magic Pockets, Lionheart, Banshee, Body Blows, Brutal Sports Football, F/A-18 Interceptor, Hunter, Killing Game Show, Mega-lo-Mania, Microprose Soccer, Monkey Island, Beneath a Steel Sky, Settlers, Theme Park, Theme Hospital, UFO Enemy Unknown, Wing Commander, Zool, Walker, Agony, Disposable Hero.
 
 ### Rotatie-regels
 
